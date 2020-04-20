@@ -60,6 +60,16 @@ def kWin():
 # Zmiana tury
 turn = 'X'
 while True:
+    a = 0
+    for i in theBoard:
+        if a == 8:
+            printBoard(theBoard)
+            print("Remis!")
+            print("-"*100)
+            theBoard = theBoard2.copy()
+            a = 0
+        elif theBoard[i] != " ":
+            a += 1
     printBoard(theBoard)
     print('Ruch gracza ' + turn + '. W którym polu stawiasz znak?')
     move = input()
@@ -82,7 +92,6 @@ while True:
             print("-"*100)
             theBoard = theBoard2.copy()
         turn = 'X'
-
 
 printBoard(theBoard)
 
