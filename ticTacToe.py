@@ -60,30 +60,28 @@ def kWin():
 # Zmiana tury
 turn = 'X'
 while True:
-    if {'top-L' != ' ' and 'top-M' != ' ' and 'top-R' != ' ' and 'mid-L' != ' ' and 'mid-M' != ' ' and 'mid-R' != ' '
-    and 'low-L' != ' ' and 'low-M' != ' ' and 'low-R' != ' '}:
-        printBoard(theBoard)
-        print('Ruch gracza ' + turn + '. W którym polu stawiasz znak?')
-        move = input()
-        if theBoard[move] == " ":
-            theBoard[move] = turn
-        else:
-            print('To pole jest zajete wybierz inne')
-            continue
-        if turn == 'X':
-            if xWin() == True:
-                print("Gracz X wygrywa!")
-                printBoard(theBoard)
-                print("-" * 100)
-                theBoard = theBoard2.copy()
-            turn = '0'
-        else:
-            if kWin() == True:
-                print("Gracz 0 wygrywa!")
-                printBoard(theBoard)
-                print("-"*100)
-                theBoard = theBoard2.copy()
-            turn = 'X'
+    printBoard(theBoard)
+    print('Ruch gracza ' + turn + '. W którym polu stawiasz znak?')
+    move = input()
+    if theBoard[move] == " ":
+        theBoard[move] = turn
+    else:
+        print('To pole jest zajete wybierz inne')
+        continue
+    if turn == 'X':
+        if xWin() == True:
+            print("Gracz X wygrywa!")
+            printBoard(theBoard)
+            print("-" * 100)
+            theBoard = theBoard2.copy()
+        turn = '0'
+    else:
+        if kWin() == True:
+            print("Gracz 0 wygrywa!")
+            printBoard(theBoard)
+            print("-"*100)
+            theBoard = theBoard2.copy()
+        turn = 'X'
 
 
 printBoard(theBoard)
