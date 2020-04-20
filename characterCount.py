@@ -1,4 +1,4 @@
-message = 'IIt was a bright, cold April day and the clocks beat thirteenth'
+message = 'It was a bright, cold April day and the clocks beat thirteenth'
 count = {}
 for character in message:
     count.setdefault(character, 0)
