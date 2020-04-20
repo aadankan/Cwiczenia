@@ -1,6 +1,9 @@
 theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
             'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
             'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+theBoard2 = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
 
 # Tworzenie planszy
 def printBoard(board):
@@ -56,20 +59,28 @@ def kWin():
 
 # Zmiana tury
 turn = 'X'
-for i in range(9):
+while True:
     printBoard(theBoard)
     print('Ruch gracza ' + turn + '. W którym polu stawiasz znak?')
     move = input()
-    theBoard[move] = turn
+    if theBoard[move] == " ":
+        theBoard[move] = turn
+    else:
+        print('To pole jest zajete wybierz inne')
+        continue
     if turn == 'X':
         if xWin() == True:
             print("Gracz X wygrywa!")
-            break
+            printBoard(theBoard)
+            print("-" * 100)
+            theBoard = theBoard2
         turn = '0'
     else:
         if kWin() == True:
             print("Gracz 0 wygrywa!")
-            break
+            printBoard(theBoard)
+            print("-"*100)
+            theBoard = theBoard2
         turn = 'X'
 
 printBoard(theBoard)
