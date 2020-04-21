@@ -17,7 +17,9 @@ def isPhoneNumber(text):
     return True
 
 
-print('415-555-4242 to jest numer telefonu')
-print(isPhoneNumber('415-555-4242'))
-print('Kosh Tohio to jest numer telefonu:')
-print(isPhoneNumber('Kosh Tohio'))
+message = 'Zadzwoń pod numer 444-555-1011 po przerwie. 415-555-9999 to moje biuro.'
+for i in range(len(message)):
+    chunk = message[i:i+12]
+    if isPhoneNumber(chunk):
+        print('Znaleziono numer telefonu: ' + chunk)
+print('Gotowe!')
