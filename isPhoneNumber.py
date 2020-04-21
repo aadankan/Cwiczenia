@@ -1,3 +1,5 @@
+import pyperclip
+
 def isPhoneNumber(text):
     if len(text) != 12:
         return False
@@ -17,7 +19,7 @@ def isPhoneNumber(text):
     return True
 
 
-message = 'Zadzwoń pod numer 444-555-1011 po przerwie. 415-555-9999 to moje biuro.'
+message = pyperclip.paste()
 for i in range(len(message)):
     chunk = message[i:i+12]
     if isPhoneNumber(chunk):
