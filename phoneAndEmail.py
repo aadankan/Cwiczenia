@@ -4,14 +4,13 @@
 import pyperclip, re
 
 phoneRegex = re.compile(r"""(
-    (\+48|(\+48))?                  # Numer kierunkowy
+    (\d{2}|(\d{2}))?                # Numer kierunkowy
     (\s|-|\.)?                      # Separator
     (\d{3})                         # Pierwsze trzy cyfry
     (\s|-|\.)                       # Separator
-    (\d{3})                         # Trzy cyfy
+    (\d{2})                         # Dwie cyfy
     (\s|-|\.)                       # Separator
-    (\d{3})                         # Ostatnie trzy cyfry
-    (\s*(ext|x|ext.)\s*(\d{2,5}))?  # Numer wewnetrzny
+    (\d{2})                         # Ostatnie dwie cyfry
     )""", re.VERBOSE)
 
 
@@ -27,11 +26,16 @@ emailRegex = re.compile(r"""(
 text = str(pyperclip.paste())
 matches = []
 for groups in phoneRegex.findall(text):
-    phoneNum = '-'.join([groups[1], groups[3], groups[5]])
-    if groups[8] != '':
-        phoneNum += ' x' + groups[8]
+    phoneNum = '-'.join([groups[1], groups[4], groups[6], groups[8]])
+
     matches.append(phoneNum)
 for groups in emailRegex.findall(text):
     matches.append(groups[0])
 
-# TODO: Skopiowanie wynikow do schowka
+# Skopiowanie wynikow do schowka
+if len(matches) > 0:
+    pyperclip.copy('\n'.join(matches))
+    print('Skopiowano do schowka:')
+    print('\n'.join(matches))
+else:
+    print('Nie znalezniono zadnego numeru telefonu lub adresu e-mail.')
