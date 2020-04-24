@@ -34,4 +34,16 @@ for quizNUm in range(35):
     states = list(capitals.keys())
     random.shuffle(states)
 
-    # TODO Iteracja 50 stanów i utworzenie pytania dotyczącego każdego z nich.
+    # Iteracja 50 stanów i utworzenie pytania dotyczącego każdego z nich.
+    for questionNum in range(50):
+        # Przygotowanie prawidłowych i nieprawidłowych odpowiedzi.
+        correctAnswers = capitals[states[questionNum]]
+        wrongAnswers = list(capitals.values())
+        del wrongAnswers[wrongAnswers.index(correctAnswers)]
+        wrongAnswers = random.sample(wrongAnswers, 3)
+        answerOptions = wrongAnswers + [correctAnswers]
+        random.shuffle(answerOptions)
+
+        # TODO: Zapis pytania i odpowiedzi w pliku quizu
+
+        # TODO: Zapis odpowiedzi w pliku
