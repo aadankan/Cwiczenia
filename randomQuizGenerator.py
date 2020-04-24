@@ -21,10 +21,17 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Joneau', 'Arizona': 'Phoenix', '
 
 # Wygenerowanie 35 plików quizu
 for quizNUm in range(35):
-    # TODO Utworzenie plików quizu i odpowiedzi na pytania
+    # Utworzenie plików quizu i odpowiedzi na pytania
+    quizFile = open('capitalsquiz%s.txt' % (quizNUm + 1), 'w')
+    answerKeyFile = open('capitalsquiz_answers%s.txt' % (quizNUm + 1), w)
 
-    # TODO Zapis nagłówka quizu
+    # Zapis nagłówka quizu
+    quizFile.write('Imię i nazwisko: \n\nData:\n\nKlasa:\n\n')
+    quizFile.write((' ' * 20)+ 'Quiz stolic stanów (Quiz %s)' % (quizNUm + 1))
+    quizFile.write('\n\n')
 
-    # TODO Losowe ustalenie kolejności stanów
+    # Losowe ustalenie kolejności stanów
+    states = list(capitals.keys())
+    random.shuffle(states)
 
     # TODO Iteracja 50 stanów i utworzenie pytania dotyczącego każdego z nich.
