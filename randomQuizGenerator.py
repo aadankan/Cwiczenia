@@ -23,7 +23,7 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Joneau', 'Arizona': 'Phoenix', '
 for quizNUm in range(35):
     # Utworzenie plików quizu i odpowiedzi na pytania
     quizFile = open('capitalsquiz%s.txt' % (quizNUm + 1), 'w')
-    answerKeyFile = open('capitalsquiz_answers%s.txt' % (quizNUm + 1), w)
+    answerKeyFile = open('capitalsquiz_answers%s.txt' % (quizNUm + 1), 'w')
 
     # Zapis nagłówka quizu
     quizFile.write('Imię i nazwisko: \n\nData:\n\nKlasa:\n\n')
@@ -44,6 +44,14 @@ for quizNUm in range(35):
         answerOptions = wrongAnswers + [correctAnswers]
         random.shuffle(answerOptions)
 
-        # TODO: Zapis pytania i odpowiedzi w pliku quizu
+        # Zapis pytania i odpowiedzi w pliku quizu
+        quizFile.write('%s. Co jest stolicą stanu %s?\n' % (questionNum + 1, states[questionNum]))
 
-        # TODO: Zapis odpowiedzi w pliku
+        for i in range(4):
+            quizFile.write('   %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+        quizFile.write('\n')
+
+        # Zapis odpowiedzi w pliku
+        answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswers)]))
+quizFile.close()
+answerKeyFile.close()
