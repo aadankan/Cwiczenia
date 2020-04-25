@@ -8,8 +8,10 @@ import shelve, pyperclip, sys
 
 mcbShelf = shelve.open('mcb')
 
-# TODO: Zapis zawartości schowka.
-
-# TODO: Wyświetlanie listy słów kluczowych i wczytywanie tresci.
+# Zapis zawartości schowka.
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+    mcbShelf[sys.argv[2]] = pyperclip.paste()
+elif len(sys.argv) == 2:
+    # TODO: Wyświetlanie listy słów kluczowych i wczytywanie treści.
 
 mcbShelf.close()
