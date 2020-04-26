@@ -12,11 +12,20 @@ datePattern = re.compile(r"""^(.*?) #Caly tekst przed data
     (.*?)$                          #Caly tekst po dacie
     """, re.VERBOSE)
 
-# TODO: Iteracja przez pliki znajdujace sie w katalogu roboczym
+# Iteracja przez pliki znajdujace sie w katalogu roboczym
+for amerFilename in os.listdir('.'):
+    mo = datePattern.search(amerFilename)
 
-# TODO: Pominiecie plikow bez daty
+    # Pominiecie plikow bez daty
+    if mo == None:
+        continue
 
-# TODO: Pobranie poszczegolnych fragmentow nazwy plikou
+    # Pobranie poszczegolnych fragmentow nazwy plikou
+    befortPart = mo.group(1)
+    monthPart = mo.group(2)
+    dayPart = mo.group(4)
+    yearPart = mo.group(6)
+    afterPart = mo.group(8)
 
 # TODO: Przygotowanie nazwy pliku zawierajacej date w formacie europejskim
 
