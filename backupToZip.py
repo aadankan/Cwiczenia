@@ -17,9 +17,22 @@ def backupToZip(folder):
             break
         number += 1
 
-    # TODO: Utworzenie archiwum ZIP
+    # Utworzenie archiwum ZIP
+    print('Tworzenie archiwum %s...' % zipFilename)
+    backupZip = zipfile.ZipFile(zipFilename, 'w')
 
-    # TODO: Przejscie przez cale drzewo katalogu i kompresja plikow we wszystkich podkatalogach
+    # Przejscie przez cale drzewo katalogu i kompresja plikow we wszystkich podkatalogach
+    for foldername, subfolders, filenames in os.walk(folder):
+        print('Dodawanie plikow w %s...' % foldername)
+        # Dodanie biezacego katalogu do archiwum ZIP
+        backupZip.write(foldername)
+        # Dodanie wszystkich plikow znajdujacych sie w tym katalogu do archiwom ZIP
+        for filename in filenames:
+            newBase = os.path.basename(folder) + '_'
+            if filename.startswith(newBase) and filename.endswith('.zip'):
+                continue    # W archiwum nie umieszczamy plikow innych archiwow
+            backupZip.write(os.path.join(foldername, filename))
+    backupZip.close()
     print('Gotowe!')
 
 backupToZip('')
