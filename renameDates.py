@@ -21,14 +21,19 @@ for amerFilename in os.listdir('.'):
         continue
 
     # Pobranie poszczegolnych fragmentow nazwy plikou
-    befortPart = mo.group(1)
+    beforePart = mo.group(1)
     monthPart = mo.group(2)
     dayPart = mo.group(4)
     yearPart = mo.group(6)
     afterPart = mo.group(8)
 
-# TODO: Przygotowanie nazwy pliku zawierajacej date w formacie europejskim
+    # Przygotowanie nazwy pliku zawierajacej date w formacie europejskim
+    euroFilename = beforePart + dayPart + '-' +monthPart + '-' + yearPart + afterPart
 
-# TODO: Pobranie pelnych bezwzglednych sciezek dostepu do pliku
+    # Pobranie pelnych bezwzglednych sciezek dostepu do pliku
+    absWorkinDir = os.path.abspath('.')
+    amerFilename = os.path.join(absWorkinDir, amerFilename)
+    euroFilename = os.path.join(absWorkinDir, euroFilename)
 
-# TODO: Zmiana nazwy plikow
+    # Zmiana nazwy plikow
+    shutil.move(amerFilename, euroFilename)
