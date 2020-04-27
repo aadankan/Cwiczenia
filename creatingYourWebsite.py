@@ -1,6 +1,15 @@
 # Program do dokonczenia, dopracowania
 # Jest to program do tworzenia stron internetowych za pomoca prostych polecen
 
+def menu(opcja):
+    if opcja == 'utworz_strone':
+        print('Podaj nazwe swojej strony')
+        nazwa = input(':')
+        structurewebsite(nazwa)
+        structurewebsite()
+    elif opcja == 'edytuj_strone':
+        editwebsite()
+
 
 def structurewebsite(nazwastrony):
     website = open('Website.html', 'w')
@@ -18,10 +27,9 @@ def structurewebsite(nazwastrony):
 </html>""")
     website.close()
 
+def editwebsite():
+    print()         # Do skonczenia
 
-print('Podaj nazwe swojej strony')
-nazwa = input(':')
-structurewebsite(nazwa)
 
 # TODO: Zrobic dodawanie tekstu
 
@@ -40,3 +48,10 @@ structurewebsite(nazwa)
 # TODO: Zrobic dodawanie list
 
 # TODO: Dodac opcje CSS - opcjonalne
+
+print('Co chcesz zrobic? \n1.Stworzyc nowa strone \n2.Edytowac strone')
+wybor = input(':')
+if wybor == '1':
+    menu('utworz_strone')
+elif wybor == '2':
+    menu('edytuj_strone')
