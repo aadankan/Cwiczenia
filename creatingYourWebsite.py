@@ -3,7 +3,7 @@
 
 
 def structurewebsite(nazwastrony):
-    website = open('D:\Python\Ksiazka\Website.html', 'w')
+    website = open('Website.html', 'w')
     website.write("""
 <!DOCTYPE html>
 <html>
@@ -16,12 +16,27 @@ def structurewebsite(nazwastrony):
 <body>
 </body>
 </html>""")
+    website.close()
 
 
 print('Podaj nazwe swojej strony')
 nazwa = input(':')
 structurewebsite(nazwa)
 
+# TODO: Zrobic dodawanie tekstu
 
+# TODO: Zrobic dodawanie naglowkow
 
+# TODO: Zrobic usuwanie
 
+# TODO: Zrobic dodawanie zdjec
+
+# TODO: Zrobic zmiane kolejnosci tekstu
+
+# TODO: Zrobic dodawanie pogrubiania tekstu
+
+# TODO: Zrobic dodawanie linkow
+
+# TODO: Zrobic dodawanie list
+
+# TODO: Dodac opcje CSS - opcjonalne
