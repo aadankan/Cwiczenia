@@ -6,7 +6,6 @@ def menu(opcja):
         print('Podaj nazwe swojej strony')
         nazwa = input(':')
         structurewebsite(nazwa)
-        structurewebsite()
     elif opcja == 'edytuj_strone':
         editwebsite()
 
