@@ -2,7 +2,7 @@
 # Jest to program do tworzenia stron internetowych za pomoca prostych polecen
 
 
-def structurewebsite(nazwaStrony):
+def structurewebsite(nazwastrony):
     website = open('D:\Python\Ksiazka\Website.html', 'w')
     website.write("""
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ def structurewebsite(nazwaStrony):
 <head>
 <meta charset="utf-8">
 <title>
-""" + str(nazwaStrony) + """
+""" + str(nazwastrony) + """
 </title>
 </head>
 <body>
