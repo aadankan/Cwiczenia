@@ -1,3 +1,4 @@
+# Program do dokonczenia, dopracowania
 # Jest to program do tworzenia stron internetowych za pomoca prostych polecen
 
 
