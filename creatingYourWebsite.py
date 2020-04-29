@@ -29,7 +29,7 @@ def structurewebsite(nazwastrony):
 
 
 def editwebsite():
-    print()         # Do skonczenia
+    print()             # Do skonczenia
 
 
 # TODO: Zrobic dodawanie tekstu
