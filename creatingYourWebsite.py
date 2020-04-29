@@ -1,6 +1,7 @@
 # Program do dokonczenia, dopracowania
 # Jest to program do tworzenia stron internetowych za pomoca prostych polecen
 
+
 def menu(opcja):
     if opcja == 'utworz_strone':
         print('Podaj nazwe swojej strony')
@@ -25,6 +26,7 @@ def structurewebsite(nazwastrony):
 </body>
 </html>""")
     website.close()
+
 
 def editwebsite():
     print()         # Do skonczenia
