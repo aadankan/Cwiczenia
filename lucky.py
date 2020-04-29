@@ -7,7 +7,9 @@ print('Wyszukiwanie...')    # Komunikat wyswietlany podczas pobierania strony Go
 res = requests.get('https://www.google.com/search?q=' + ' '.join(sys.argv[1:]))
 res.raise_for_status()
 
-# TODO: Pobranie laczy z kilkoma pierwszymi wynikami wyszukiwania
+# Pobranie laczy z kilkoma pierwszymi wynikami wyszukiwania
+soup = bs4.BeautifulSoup(res.text)
 
-# TODO: Otworzenie karty przegladarki WWW dla kazdego wyniku wyszukiwania
+# Otworzenie karty przegladarki WWW dla kazdego wyniku wyszukiwania
+linkElems = soup.select('.r a')
 
