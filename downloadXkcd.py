@@ -22,9 +22,14 @@ while not url.endswith('#'):
         # Pobranie obrazu
         print('Pobieranie obrazu %s...' % comicUrl)
         res.raise_for_status()
+        # Zapis obrazu w katalogu ./xkcd.
+        imageFile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
+        for chunk in res.iter_content(100000):
+            imageFile.write(chunk)
+        imageFile.close()
 
-    # TODO: Zapis obrazu w katalogu ./xkcd.
-
-    # TODO: Pobranie adresu URL w przycisku Prev
+    # obranie adresu URL w przycisku Prev
+    prevLink = soup.select('a[rel="prev"]')[0]
+    url = 'http://xkcd.com' + prevLink.get('href')
 
 print('Gotowe!')
