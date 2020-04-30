@@ -6,7 +6,12 @@ import requests, os, bs4
 url = 'gttp://xkcd.com'
 os.makedirs('xkcd', exist_ok=True)
 while not url.endswith('#'):
-    # TODO: Poranie strony
+    # Poranie strony
+    print('Pobieranie strony %s...' % url)
+    res = requests.get(url)
+    res.raise_for_status()
+
+    soup = bs4.BeautifulSoup(res.text)
 
     # TODO: Ustalenie adresu URL pliku obrazu komiksu
 
