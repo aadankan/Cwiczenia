@@ -3,7 +3,7 @@
 
 import requests, os, bs4
 
-url = 'gttp://xkcd.com'
+url = 'http://xkcd.com'
 os.makedirs('xkcd', exist_ok=True)
 while not url.endswith('#'):
     # Poranie strony
