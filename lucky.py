@@ -19,5 +19,3 @@ for i in range(numOpen):
 print('cos')
 print(linkElems)
 
-
-
