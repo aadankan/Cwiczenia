@@ -14,5 +14,16 @@ url = 'htt://api.openweathermap.org/data/2.5/forecast/daile?q=%s&cnt=3' % locati
 response = requests.get(url)
 response.raise_for_status()
 
-# TODO: Umieszczenie danych JSON w zmiennej Pythona
+# Umieszczenie danych JSON w zmiennej Pythona
+weatherData = json.loads(response.text)
+# Wyswietlenie opisu pogody
+w = weatherData['list']
+print('Aktualna pogoda w %s:' % location)
+print(w[0]['weather'][0]['main'], '-', w[0]['weather'][0]['description'])
+print()
+print('Jutro:')
+print(w[1]['weather'][0]['main'], '-', w[1]['weather'][0]['description'])
+print()
+print('Pojutrze:')
+print(w[2]['weather'][0]['main'], '-', w[2]['weather'][0]['description'])
 
