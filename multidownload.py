@@ -42,4 +42,5 @@ for i in range(0, 2300, 100):
 # Zaczekanie na zakonczenie dzialania wszystkich watkow
 for downloadThread in downloadThreads:
     downloadThread.join()
+
 print('Gotowe!')
