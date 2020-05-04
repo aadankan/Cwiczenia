@@ -29,5 +29,11 @@ def downloadXkcd(startComic, endComic):
                 imageFile.write(chunk)
             imageFile.close()
 
-# TODO: Utworzenie i uruchomienie obiektow Thread
+# Utworzenie i uruchomienie obiektow Thread
+downloadThreads = []
+for i in range(00, 1400, 100)
+    downloadThread = threading.Thread(target=downloadXkcd, args=(i, i+99))
+    downloadThreads.append(downloadThread)
+    downloadThread.start()
+
 # TODO: Zaczekanie na zakonczenie dzialania wszystkich watkow
