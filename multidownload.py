@@ -39,7 +39,4 @@ for i in range(0, 2300, 100):
     downloadThreads.append(downloadThread)
     downloadThread.start()
 
-# Zaczekanie na zakonczenie dzialania wszystkich watkow
-for downloadThread in downloadThreads:
-    downloadThread.join()
-print('Gotowe!')
+# TODO: Zaczekanie na zakonczenie dzialania wszystkich watkow
