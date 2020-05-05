@@ -1,9 +1,9 @@
 #! python3
 # multidownload.py-Pobiera wszystkie komiksy opublikowane w witrynie XKCD, uzywajac do tego wielu watkow
 
-import requests, os, bs4, threading
+import requests, os, bs4, threading, time
 os.makedirs('xkcd', exist_ok=True)
-
+startTime = time.time()
 def downloadXkcd(startComic, endComic):
     for urlNumber in range(startComic, endComic):
         # Pobranie strony
@@ -44,3 +44,4 @@ for downloadThread in downloadThreads:
     downloadThread.join()
 
 print('Gotowe!')
+print('Wykonano w: '+ str(time.time()-startTime))
