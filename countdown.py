@@ -10,5 +10,6 @@ while timeLeft > 0:
     time.sleep(1)
     timeLeft -= 1
 
-# TODO: Po odliczeniu okreslonego czasu bedzie odtworzony plik dzwiekowy
+# Po odliczeniu okreslonego czasu bedzie odtworzony plik dzwiekowy
+subprocess.Popen(['start', 'alarm.wav'], shell=True)
 
