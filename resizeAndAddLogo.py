@@ -6,24 +6,24 @@ import os
 from PIL import Image
 
 SQUARE_FIT_SIZE = 300
-LOGO_FILENAME = 'catlogo.png'
+LOGO_FILENAME = 'Logo.png'
 
 logoIm = Image.open(LOGO_FILENAME)
 logoWidth, logoHeight = logoIm.size
 
 os.makedirs('withLogo', exist_ok=True)
-# Iteracja przez wszystkie pliki w bieżącym katalogu roboczym.
+# Iteracja przez wszystkie pliki w biezącym katalogu roboczym.
 for filename in os.listdir('.'):
     if not (filename.endswith('.png') or filename.endswith('.jpg')) \
        or filename == LOGO_FILENAME:
-        continue # Pominięcie plików innych niż obrazy oraz obrazu o nazwie pliku takiej samej jak logo.
+        continue     # Pominiecie plikow innych niz obrazy oraz obrazu o nazwie pliku takiej samej jak logo.
 
     im = Image.open(filename)
     width, height = im.size
 
-    # Sprawdzenie, czy konieczna jest zmiana wielkości obrazu.
+    # Sprawdzenie, czy konieczna jest zmiana wielkosci obrazu.
     if width > SQUARE_FIT_SIZE and height > SQUARE_FIT_SIZE:
-        # Obliczenie nowej szerokości i wysokości obrazu.
+        # Obliczenie nowej szerokosci i wysokosci obrazu.
         if width > height:
             height = int((SQUARE_FIT_SIZE / width) * height)
             width = SQUARE_FIT_SIZE
@@ -31,8 +31,8 @@ for filename in os.listdir('.'):
             width = int((SQUARE_FIT_SIZE / height) * width)
             height = SQUARE_FIT_SIZE
 
-        # Zmiana wielkości obrazu.
-        print('Zmiana wielkości obrazu %s...' % (filename))
+        # Zmiana wielkosci obrazu.
+        print('Zmiana wielkosci obrazu %s...' % (filename))
         im = im.resize((width, height))
 
     # Dodanie logo.
