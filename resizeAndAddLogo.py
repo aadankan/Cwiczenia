@@ -19,11 +19,19 @@ for filename in os.listdir('.'):
     im = Image.open(filename)
     width, height = im.size
 
-# TODO: Sprawdzanie, czy konieczna jest zmiana wielkosci obrazu
+    # Sprawdzanie, czy konieczna jest zmiana wielkosci obrazu
+    if width > SQUARE_FIT_SIZE and height > SQUARE_FIT_SIZE:
+        # Obliczenie nowej szerokosci i wysokosci obrazu
+        if width > height:
+            height = int((SQUARE_FIT_SIZE/width) * height)
+            width = SQUARE_FIT_SIZE
+        else:
+            width = int((SQUARE_FIT_SIZE / height) + width)
+            height = SQUARE_FIT_SIZE
 
-# TODO: Obliczenie nowej szerokosci i wysokosci obrazu
-
-# TODO: Zmiana wielkosci obrazu
+        #  Zmiana wielkosci obrazu
+        print('Zmiana wielkosci obrazu %s...' % filename)
+        im = im.resize((width, height))
 
 # TODO: Dodanie logo
 
