@@ -30,19 +30,30 @@ class Drawing:
             i += 1 / r * d
             pyautogui.click(a+x, b-y, duration=wtime)
 
-    def dom(self=2, x=100, y=100, h=50, wtime=0):
+    def elipse(self=2, w=100, h=50, d=1, wtime=0):
+        time.sleep(self)
+        i = 0
+        a, b = pyautogui.position()
+        while i <= 2 * pi:
+            x = round(sin(i) * w)
+            y = round(cos(i) * h)
+            i += 1 / w * d
+            pyautogui.click(a+x, b-y, duration=wtime)
+
+    def dom(self=2, x=100, y=100, h=50, wtime=1.5):
         time.sleep(self)
         Drawing.prostokat(0, x, y, wtime)
         pyautogui.moveRel(-1 / 2 * x, 0)
         Drawing.trojkat(0, x, h, wtime)
         pyautogui.moveRel(3/5*x, 1/5*x)
-        Drawing.prostokat(0, x/5, x/5)
+        Drawing.prostokat(0, x/5, x/5, wtime/2)
         pyautogui.moveRel(3/5*x, 0)
-        Drawing.prostokat(0, x / 5, x / 5)
+        Drawing.prostokat(0, x / 5, x / 5, wtime/2)
         pyautogui.moveRel(-7/10*x, -1/5*x)
         pyautogui.moveRel(2/5*x,3/5*y)
-        Drawing.prostokat(0, x/5, 12/30*y)
+        Drawing.prostokat(0, x/5, 12/30*y, wtime)
 
 
-Drawing.dom()
 
+
+Drawing.dom(x=100, y=100)
