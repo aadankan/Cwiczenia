@@ -1,4 +1,5 @@
 import os
+import random
 
 words = "C:/Users/adik/Desktop/words.txt"
 Dwords = {}
@@ -17,22 +18,43 @@ for i in range(len(a)):
 
 f.close()
 
-while True:
 
-    print('Write yours word: (leave this field to end this program)')
-    polishWord = input()
-    if polishWord == '':
-        break
-    if polishWord in Dwords:
-        print(Dwords[polishWord])
-    else:
-        print('Information not found about this word' + polishWord)
-        print('What is this word?')
-        engWord = input()
-        if engWord == "":
-            continue
-        f = open(words, 'a')
-        Dwords[polishWord] = engWord
-        f.write('\n'+polishWord + ' - ' + engWord)
-        f.close()
-        print('Database completed')
+def menu():
+    a = input("""
+    Co chcesz zrobic?
+    1. dopisac slowka
+    2. sprawdzic sie
+    Wpisz numer: """)
+    if a == '1':
+        dopisywanie()
+    if a == '2':
+        sprawdzian()
+
+
+def dopisywanie():
+    while True:
+
+        print('Write yours word: (leave this field to end this program)')
+        polishWord = input()
+        if polishWord == '':
+            break
+        if polishWord in Dwords:
+            print(Dwords[polishWord])
+        else:
+            print('Information not found about this word' + polishWord)
+            print('What is this word?')
+            engWord = input()
+            if engWord == "":
+                continue
+            f = open(words, 'a')
+            Dwords[polishWord] = engWord
+            f.write('\n'+polishWord + ' - ' + engWord)
+            f.close()
+            print('Database completed')
+
+def sprawdzian():
+    pass
+
+
+
+menu()
