@@ -22,14 +22,15 @@ f.close()
 def menu():
     a = input("""
     Co chcesz zrobic?
-    1. dopisac slowka
-    2. sprawdzic sie
+    1. Dopisac slowka
+    2. Sprawdzic sie
+    3. Wyjscie
     Wpisz numer: """)
     if a == '1':
         dopisywanie()
     if a == '2':
         sprawdzian()
-    if a == '':
+    if a == '3':
         quit()
 
 
@@ -56,16 +57,23 @@ def dopisywanie():
 
 def sprawdzian():
     f = open(words, 'r')
+    print('Wpisz "quit" aby wyjsc')
     if len(f.readlines()) >= 10:
+        e = 0
+        f = 0
         for i in range(10):
+            f += 1
             r = random.randint(0, len(listwords)-1)
             print(str(list(a)[r].split(' - ')[0]))
             b = input('Podaj slowo po angielsku: ')
             if b == Dwords[a[r].split(' - ')[0]]:
+                e += 1
                 print('Dobrze!')
+            elif b == 'quit':
+                menu()
             else:
                 print('Zle, poprawna odpowiedz to: '+Dwords[a[r].split(' - ')[0]])
-
+        print('Twoj wynik to:' + str(e) + ' na ' + str(f))
 
     else:
         print('Za malo slowek')
