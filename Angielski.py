@@ -61,19 +61,26 @@ def sprawdzian():
     if len(f.readlines()) >= 10:
         e = 0
         f = 0
+        g = {}
+        while len(g) < 10:
+            r = random.randint(0, len(listwords)-1)
+            g[str(list(a)[r].split(' - ')[0])] = Dwords[a[r].split(' - ')[0]]
+
+        print(g)
+
         for i in range(10):
             f += 1
-            r = random.randint(0, len(listwords)-1)
-            print(str(list(a)[r].split(' - ')[0]))
+            print(str(list(g)[i].split(' - ')[0]))
             b = input('Podaj slowo po angielsku: ')
-            if b == Dwords[a[r].split(' - ')[0]]:
+            if b == g[str(list(g)[i].split(' - ')[0])]:
                 e += 1
                 print('Dobrze!')
             elif b == 'quit':
                 menu()
             else:
-                print('Zle, poprawna odpowiedz to: '+Dwords[a[r].split(' - ')[0]])
-        print('Twoj wynik to:' + str(e) + ' na ' + str(f))
+                print('Zle, poprawna odpowiedz to: '+g[str(list(g)[i].split(' - ')[0])])
+
+        print('Twoj wynik to: ' + str(e) + ' na ' + str(f))
 
     else:
         print('Za malo slowek')
