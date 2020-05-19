@@ -29,6 +29,8 @@ def menu():
         dopisywanie()
     if a == '2':
         sprawdzian()
+    if a == '':
+        quit()
 
 
 def dopisywanie():
@@ -37,7 +39,7 @@ def dopisywanie():
         print('Write yours word: (leave this field to end this program)')
         polishWord = input()
         if polishWord == '':
-            break
+            menu()
         if polishWord in Dwords:
             print(Dwords[polishWord])
         else:
@@ -53,8 +55,21 @@ def dopisywanie():
             print('Database completed')
 
 def sprawdzian():
-    pass
+    f = open(words, 'r')
+    if len(f.readlines()) >= 10:
+        for i in range(10):
+            r = random.randint(0, len(listwords)-1)
+            print(str(list(a)[r].split(' - ')[0]))
+            b = input('Podaj slowo po angielsku: ')
+            if b == Dwords[a[r].split(' - ')[0]]:
+                print('Dobrze!')
+            else:
+                print('Zle, poprawna odpowiedz to: '+Dwords[a[r].split(' - ')[0]])
 
+
+    else:
+        print('Za malo slowek')
+    menu()
 
 
 menu()
