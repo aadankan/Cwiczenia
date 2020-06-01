@@ -54,4 +54,4 @@ class Drawing:
         Drawing.prostokat(0, x / 5, 12 / 30 * y, wtime)
 
 
-Drawing.dom(x=100, y=100)
+Drawing.dom()

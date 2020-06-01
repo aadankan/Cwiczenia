@@ -37,7 +37,7 @@ def menu():
 def dopisywanie():
     while True:
 
-        print('Write yours word: (leave this field to end this program)')
+        print('Napisz swoje slowo: (zostaw to pole puste aby zakonczyc program)')
         polishWord = input()
         if polishWord == '':
             menu()
