@@ -1,7 +1,7 @@
 import os
 import random
 
-words = "C:/Users/adik/Desktop/words.txt"
+words = "C:/Users/aadan/Desktop/words.txt"
 Dwords = {}
 if not os.path.isfile(words):
     f = open(words, "w")
@@ -66,7 +66,6 @@ def sprawdzian():
             r = random.randint(0, len(listwords)-1)
             g[str(list(a)[r].split(' - ')[0])] = Dwords[a[r].split(' - ')[0]]
 
-        print(g)
 
         for i in range(10):
             f += 1
